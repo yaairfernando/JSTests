@@ -1,4 +1,4 @@
-import {capitalize, reverseString, calculator, analyze}  from './functions';
+import {capitalize, reverseString, calculator, analyze, caesarCipher}  from './functions';
 
 test('capitalize', () => {
   expect(typeof capitalize).toEqual('function');
@@ -52,4 +52,15 @@ test('analize', () => {
   expect(rst2.min).toEqual(10)
   expect(rst2.max).toEqual(50)
   expect(rst2.length).toEqual(4)
+})
+
+test('caesarCipher', () => {
+  expect(typeof caesarCipher).toEqual('function');
+})
+
+test('caesarCipher', () => {
+  expect(caesarCipher('hello',1)).toEqual('gdkkn');
+  expect(caesarCipher('zebra',1)).toEqual('ydaqz');
+  expect(caesarCipher('zebra',2)).toEqual('xczpy');
+  expect(caesarCipher('zebra',3)).toEqual('wbyox');
 })
