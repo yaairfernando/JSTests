@@ -1,4 +1,4 @@
-import {capitalize, reverseString, calculator}  from './functions';
+import {capitalize, reverseString, calculator, analyze}  from './functions';
 
 test('capitalize', () => {
   expect(typeof capitalize).toEqual('function');
@@ -26,4 +26,30 @@ test('calculator', () => {
 
 test('calculator', () => {
   expect(calculator.substract(3,2)).toEqual(1);
+})
+
+test('calculator', () => {
+  expect(calculator.multiply(3,2)).toEqual(6);
+  expect(calculator.multiply(100,2,2)).toEqual(400);
+})
+
+test('calculator', () => {
+  expect(calculator.divide(10,2)).toEqual(5);
+  expect(calculator.divide(11,2)).toEqual(5.5);
+})
+
+test('analize', () => {
+  expect(typeof analyze).toEqual('function');
+  let rst = analyze([1,2,3,4,5]);
+  expect(rst.average).toEqual(3)
+  expect(rst.min).toEqual(1)
+  expect(rst.max).toEqual(5)
+  expect(rst.length).toEqual(5)
+
+
+  let rst2 = analyze([10,20,20,50]);
+  expect(rst2.average).toEqual(25)
+  expect(rst2.min).toEqual(10)
+  expect(rst2.max).toEqual(50)
+  expect(rst2.length).toEqual(4)
 })

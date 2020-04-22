@@ -20,11 +20,36 @@ const calculator = (() =>{
     return args.reduce((total,num) => total + num)
   }
 
+  const multiply = (...args) =>{
+    return args.reduce((total,num) => total * num)
+  }
+
   const substract = (num, subsNum) =>{
     return num - subsNum
   }
 
-  return {add, substract}
+  const divide = (a, b) =>{
+    return a / b
+  }
+
+  return {add, substract, divide, multiply}
 })()
 
-export {capitalize, reverseString, calculator };
+const analyze = (arr) => {
+  let average = arr.reduce((prev, curr, index, arr) => {
+    prev += curr;
+    if(index === arr.length -1){
+        return prev / arr.length;
+    }else{
+        return prev;
+    }
+  }, 0)
+
+  let min = Math.min.call(null, ...arr);
+  let max = Math.max.call(null, ...arr);
+  let length = arr.length;
+  return {average, min, max, length}
+}
+
+
+export {capitalize, reverseString, calculator, analyze };
